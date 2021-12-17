@@ -1,0 +1,9 @@
+# Build files
+*.pkg
+build
+pkg.gp4
+sce_sys/param.sfo
+eboot.bin
+
+# VS Code
+.vscode
