@@ -45,21 +45,23 @@
  * not include the padding.
  */
 
-typedef struct {
-  uint32_t n_namesz; /* Length of name. */
-  uint32_t n_descsz; /* Length of descriptor. */
-  uint32_t n_type;   /* Type of this note. */
+typedef struct
+{
+    uint32_t n_namesz; /* Length of name. */
+    uint32_t n_descsz; /* Length of descriptor. */
+    uint32_t n_type;   /* Type of this note. */
 } Elf_Note;
 
 /*
  * The header for GNU-style hash sections.
  */
 
-typedef struct {
-  uint32_t gh_nbuckets;  /* Number of hash buckets. */
-  uint32_t gh_symndx;    /* First visible symbol in .dynsym. */
-  uint32_t gh_maskwords; /* #maskwords used in bloom filter. */
-  uint32_t gh_shift2;    /* Bloom filter shift count. */
+typedef struct
+{
+    uint32_t gh_nbuckets;  /* Number of hash buckets. */
+    uint32_t gh_symndx;    /* First visible symbol in .dynsym. */
+    uint32_t gh_maskwords; /* #maskwords used in bloom filter. */
+    uint32_t gh_shift2;    /* Bloom filter shift count. */
 } Elf_GNU_Hash_Header;
 
 /* Indexes into the e_ident array.  Keep synced with
@@ -123,10 +125,9 @@ typedef struct {
 #define ELFOSABI_MONTEREY ELFOSABI_AIX /* Monterey */
 
 /* e_ident */
-#define IS_ELF(ehdr) ((ehdr).e_ident[EI_MAG0] == ELFMAG0 && \
-                      (ehdr).e_ident[EI_MAG1] == ELFMAG1 && \
-                      (ehdr).e_ident[EI_MAG2] == ELFMAG2 && \
-                      (ehdr).e_ident[EI_MAG3] == ELFMAG3)
+#define IS_ELF(ehdr)                                                                                                   \
+    ((ehdr).e_ident[EI_MAG0] == ELFMAG0 && (ehdr).e_ident[EI_MAG1] == ELFMAG1 && (ehdr).e_ident[EI_MAG2] == ELFMAG2 && \
+     (ehdr).e_ident[EI_MAG3] == ELFMAG3)
 
 /* Values for e_type. */
 #define ET_NONE 0        /* Unknown type. */
@@ -186,59 +187,68 @@ typedef struct {
 #define EM_AMD64 EM_X86_64 /* Advanced Micro Devices x86-64 (compat) */
 #define EM_PDSP 63         /* Sony DSP Processor. */
 #define EM_FX66 66         /* Siemens FX66 microcontroller. */
-#define EM_ST9PLUS 67      /* STMicroelectronics ST9+ 8/16 \
-                              microcontroller. */
-#define EM_ST7 68          /* STmicroelectronics ST7 8-bit \
-                              microcontroller. */
-#define EM_68HC16 69       /* Motorola MC68HC16 microcontroller. */
-#define EM_68HC11 70       /* Motorola MC68HC11 microcontroller. */
-#define EM_68HC08 71       /* Motorola MC68HC08 microcontroller. */
-#define EM_68HC05 72       /* Motorola MC68HC05 microcontroller. */
-#define EM_SVX 73          /* Silicon Graphics SVx. */
-#define EM_ST19 74         /* STMicroelectronics ST19 8-bit mc. */
-#define EM_VAX 75          /* Digital VAX. */
-#define EM_CRIS 76         /* Axis Communications 32-bit embedded \
-                              processor. */
-#define EM_JAVELIN 77      /* Infineon Technologies 32-bit embedded \
-                              processor. */
-#define EM_FIREPATH 78     /* Element 14 64-bit DSP Processor. */
-#define EM_ZSP 79          /* LSI Logic 16-bit DSP Processor. */
-#define EM_MMIX 80         /* Donald Knuth's educational 64-bit proc. */
-#define EM_HUANY 81        /* Harvard University machine-independent \
-                              object files. */
-#define EM_PRISM 82        /* SiTera Prism. */
-#define EM_AVR 83          /* Atmel AVR 8-bit microcontroller. */
-#define EM_FR30 84         /* Fujitsu FR30. */
-#define EM_D10V 85         /* Mitsubishi D10V. */
-#define EM_D30V 86         /* Mitsubishi D30V. */
-#define EM_V850 87         /* NEC v850. */
-#define EM_M32R 88         /* Mitsubishi M32R. */
-#define EM_MN10300 89      /* Matsushita MN10300. */
-#define EM_MN10200 90      /* Matsushita MN10200. */
-#define EM_PJ 91           /* picoJava. */
-#define EM_OPENRISC 92     /* OpenRISC 32-bit embedded processor. */
-#define EM_ARC_A5 93       /* ARC Cores Tangent-A5. */
-#define EM_XTENSA 94       /* Tensilica Xtensa Architecture. */
-#define EM_VIDEOCORE 95    /* Alphamosaic VideoCore processor. */
-#define EM_TMM_GPP 96      /* Thompson Multimedia General Purpose \
-                              Processor. */
-#define EM_NS32K 97        /* National Semiconductor 32000 series. */
-#define EM_TPC 98          /* Tenor Network TPC processor. */
-#define EM_SNP1K 99        /* Trebia SNP 1000 processor. */
-#define EM_ST200 100       /* STMicroelectronics ST200 microcontroller. */
-#define EM_IP2K 101        /* Ubicom IP2xxx microcontroller family. */
-#define EM_MAX 102         /* MAX Processor. */
-#define EM_CR 103          /* National Semiconductor CompactRISC \
-                              microprocessor. */
-#define EM_F2MC16 104      /* Fujitsu F2MC16. */
-#define EM_MSP430 105      /* Texas Instruments embedded microcontroller \
-                              msp430. */
-#define EM_BLACKFIN 106    /* Analog Devices Blackfin (DSP) processor. */
-#define EM_SE_C33 107      /* S1C33 Family of Seiko Epson processors. */
-#define EM_SEP 108         /* Sharp embedded microprocessor. */
-#define EM_ARCA 109        /* Arca RISC Microprocessor. */
-#define EM_UNICORE 110     /* Microprocessor series from PKU-Unity Ltd. \
-                              and MPRC of Peking University */
+#define EM_ST9PLUS                                                                                                     \
+    67 /* STMicroelectronics ST9+ 8/16                                                                                 \
+          microcontroller. */
+#define EM_ST7                                                                                                         \
+    68               /* STmicroelectronics ST7 8-bit                                                                   \
+                        microcontroller. */
+#define EM_68HC16 69 /* Motorola MC68HC16 microcontroller. */
+#define EM_68HC11 70 /* Motorola MC68HC11 microcontroller. */
+#define EM_68HC08 71 /* Motorola MC68HC08 microcontroller. */
+#define EM_68HC05 72 /* Motorola MC68HC05 microcontroller. */
+#define EM_SVX 73    /* Silicon Graphics SVx. */
+#define EM_ST19 74   /* STMicroelectronics ST19 8-bit mc. */
+#define EM_VAX 75    /* Digital VAX. */
+#define EM_CRIS                                                                                                        \
+    76 /* Axis Communications 32-bit embedded                                                                          \
+          processor. */
+#define EM_JAVELIN                                                                                                     \
+    77                 /* Infineon Technologies 32-bit embedded                                                        \
+                          processor. */
+#define EM_FIREPATH 78 /* Element 14 64-bit DSP Processor. */
+#define EM_ZSP 79      /* LSI Logic 16-bit DSP Processor. */
+#define EM_MMIX 80     /* Donald Knuth's educational 64-bit proc. */
+#define EM_HUANY                                                                                                       \
+    81                  /* Harvard University machine-independent                                                      \
+                           object files. */
+#define EM_PRISM 82     /* SiTera Prism. */
+#define EM_AVR 83       /* Atmel AVR 8-bit microcontroller. */
+#define EM_FR30 84      /* Fujitsu FR30. */
+#define EM_D10V 85      /* Mitsubishi D10V. */
+#define EM_D30V 86      /* Mitsubishi D30V. */
+#define EM_V850 87      /* NEC v850. */
+#define EM_M32R 88      /* Mitsubishi M32R. */
+#define EM_MN10300 89   /* Matsushita MN10300. */
+#define EM_MN10200 90   /* Matsushita MN10200. */
+#define EM_PJ 91        /* picoJava. */
+#define EM_OPENRISC 92  /* OpenRISC 32-bit embedded processor. */
+#define EM_ARC_A5 93    /* ARC Cores Tangent-A5. */
+#define EM_XTENSA 94    /* Tensilica Xtensa Architecture. */
+#define EM_VIDEOCORE 95 /* Alphamosaic VideoCore processor. */
+#define EM_TMM_GPP                                                                                                     \
+    96               /* Thompson Multimedia General Purpose                                                            \
+                        Processor. */
+#define EM_NS32K 97  /* National Semiconductor 32000 series. */
+#define EM_TPC 98    /* Tenor Network TPC processor. */
+#define EM_SNP1K 99  /* Trebia SNP 1000 processor. */
+#define EM_ST200 100 /* STMicroelectronics ST200 microcontroller. */
+#define EM_IP2K 101  /* Ubicom IP2xxx microcontroller family. */
+#define EM_MAX 102   /* MAX Processor. */
+#define EM_CR                                                                                                          \
+    103               /* National Semiconductor CompactRISC                                                            \
+                         microprocessor. */
+#define EM_F2MC16 104 /* Fujitsu F2MC16. */
+#define EM_MSP430                                                                                                      \
+    105                 /* Texas Instruments embedded microcontroller                                                  \
+                           msp430. */
+#define EM_BLACKFIN 106 /* Analog Devices Blackfin (DSP) processor. */
+#define EM_SE_C33 107   /* S1C33 Family of Seiko Epson processors. */
+#define EM_SEP 108      /* Sharp embedded microprocessor. */
+#define EM_ARCA 109     /* Arca RISC Microprocessor. */
+#define EM_UNICORE                                                                                                     \
+    110 /* Microprocessor series from PKU-Unity Ltd.                                                                   \
+           and MPRC of Peking University */
 
 /* Non-standard or deprecated. */
 #define EM_486 6          /* Intel i486. */
@@ -351,53 +361,64 @@ typedef struct {
 #define PN_XNUM 0xffff
 
 /* Values for d_tag. */
-#define DT_NULL 0                    /* Terminating entry. */
-#define DT_NEEDED 1                  /* String table offset of a needed shared \
-                                        library. */
-#define DT_PLTRELSZ 2                /* Total size in bytes of PLT relocations. */
-#define DT_PLTGOT 3                  /* Processor-dependent address. */
-#define DT_HASH 4                    /* Address of symbol hash table. */
-#define DT_STRTAB 5                  /* Address of string table. */
-#define DT_SYMTAB 6                  /* Address of symbol table. */
-#define DT_RELA 7                    /* Address of ElfNN_Rela relocations. */
-#define DT_RELASZ 8                  /* Total size of ElfNN_Rela relocations. */
-#define DT_RELAENT 9                 /* Size of each ElfNN_Rela relocation entry. */
-#define DT_STRSZ 10                  /* Size of string table. */
-#define DT_SYMENT 11                 /* Size of each symbol table entry. */
-#define DT_INIT 12                   /* Address of initialization function. */
-#define DT_FINI 13                   /* Address of finalization function. */
-#define DT_SONAME 14                 /* String table offset of shared object \
-                                        name. */
-#define DT_RPATH 15                  /* String table offset of library path. [sup] */
-#define DT_SYMBOLIC 16               /* Indicates "symbolic" linking. [sup] */
-#define DT_REL 17                    /* Address of ElfNN_Rel relocations. */
-#define DT_RELSZ 18                  /* Total size of ElfNN_Rel relocations. */
-#define DT_RELENT 19                 /* Size of each ElfNN_Rel relocation. */
-#define DT_PLTREL 20                 /* Type of relocation used for PLT. */
-#define DT_DEBUG 21                  /* Reserved (not used). */
-#define DT_TEXTREL 22                /* Indicates there may be relocations in \
-                                        non-writable segments. [sup] */
-#define DT_JMPREL 23                 /* Address of PLT relocations. */
-#define DT_BIND_NOW 24               /* [sup] */
-#define DT_INIT_ARRAY 25             /* Address of the array of pointers to \
-                                        initialization functions */
-#define DT_FINI_ARRAY 26             /* Address of the array of pointers to \
-                                        termination functions */
-#define DT_INIT_ARRAYSZ 27           /* Size in bytes of the array of \
-                                        initialization functions. */
-#define DT_FINI_ARRAYSZ 28           /* Size in bytes of the array of \
-                                        terminationfunctions. */
-#define DT_RUNPATH 29                /* String table offset of a null-terminated \
-                                        library search path string. */
-#define DT_FLAGS 30                  /* Object specific flag values. */
-#define DT_ENCODING 32               /* Values greater than or equal to DT_ENCODING \
-                                        and less than DT_LOOS follow the rules for  \
-                                        the interpretation of the d_un union        \
-                                        as follows: even == 'd_ptr', odd == 'd_val' \
-                                        or none */
-#define DT_PREINIT_ARRAY 32          /* Address of the array of pointers to \
-                                        pre-initialization functions. */
-#define DT_PREINIT_ARRAYSZ 33        /* Size in bytes of the array of \
+#define DT_NULL 0 /* Terminating entry. */
+#define DT_NEEDED                                                                                                      \
+    1                 /* String table offset of a needed shared                                                        \
+                         library. */
+#define DT_PLTRELSZ 2 /* Total size in bytes of PLT relocations. */
+#define DT_PLTGOT 3   /* Processor-dependent address. */
+#define DT_HASH 4     /* Address of symbol hash table. */
+#define DT_STRTAB 5   /* Address of string table. */
+#define DT_SYMTAB 6   /* Address of symbol table. */
+#define DT_RELA 7     /* Address of ElfNN_Rela relocations. */
+#define DT_RELASZ 8   /* Total size of ElfNN_Rela relocations. */
+#define DT_RELAENT 9  /* Size of each ElfNN_Rela relocation entry. */
+#define DT_STRSZ 10   /* Size of string table. */
+#define DT_SYMENT 11  /* Size of each symbol table entry. */
+#define DT_INIT 12    /* Address of initialization function. */
+#define DT_FINI 13    /* Address of finalization function. */
+#define DT_SONAME                                                                                                      \
+    14                 /* String table offset of shared object                                                         \
+                          name. */
+#define DT_RPATH 15    /* String table offset of library path. [sup] */
+#define DT_SYMBOLIC 16 /* Indicates "symbolic" linking. [sup] */
+#define DT_REL 17      /* Address of ElfNN_Rel relocations. */
+#define DT_RELSZ 18    /* Total size of ElfNN_Rel relocations. */
+#define DT_RELENT 19   /* Size of each ElfNN_Rel relocation. */
+#define DT_PLTREL 20   /* Type of relocation used for PLT. */
+#define DT_DEBUG 21    /* Reserved (not used). */
+#define DT_TEXTREL                                                                                                     \
+    22                 /* Indicates there may be relocations in                                                        \
+                          non-writable segments. [sup] */
+#define DT_JMPREL 23   /* Address of PLT relocations. */
+#define DT_BIND_NOW 24 /* [sup] */
+#define DT_INIT_ARRAY                                                                                                  \
+    25 /* Address of the array of pointers to                                                                          \
+          initialization functions */
+#define DT_FINI_ARRAY                                                                                                  \
+    26 /* Address of the array of pointers to                                                                          \
+          termination functions */
+#define DT_INIT_ARRAYSZ                                                                                                \
+    27 /* Size in bytes of the array of                                                                                \
+          initialization functions. */
+#define DT_FINI_ARRAYSZ                                                                                                \
+    28 /* Size in bytes of the array of                                                                                \
+          terminationfunctions. */
+#define DT_RUNPATH                                                                                                     \
+    29              /* String table offset of a null-terminated                                                        \
+                       library search path string. */
+#define DT_FLAGS 30 /* Object specific flag values. */
+#define DT_ENCODING                                                                                                    \
+    32 /* Values greater than or equal to DT_ENCODING                                                                  \
+          and less than DT_LOOS follow the rules for                                                                   \
+          the interpretation of the d_un union                                                                         \
+          as follows: even == 'd_ptr', odd == 'd_val'                                                                  \
+          or none */
+#define DT_PREINIT_ARRAY                                                                                               \
+    32 /* Address of the array of pointers to                                                                          \
+          pre-initialization functions. */
+#define DT_PREINIT_ARRAYSZ                                                                                             \
+    33                               /* Size in bytes of the array of                                                  \
                                         pre-initialization functions. */
 #define DT_MAXPOSTAGS 34             /* number of positive tags */
 #define DT_LOOS 0x6000000d           /* First OS-specific */
@@ -458,19 +479,23 @@ typedef struct {
 #define DT_HIPROC 0x7fffffff    /* Last processor-specific type. */
 
 /* Values for DT_FLAGS */
-#define DF_ORIGIN 0x0001     /* Indicates that the object being loaded may \
-                                make reference to the $ORIGIN substitution \
-                                string */
-#define DF_SYMBOLIC 0x0002   /* Indicates "symbolic" linking. */
-#define DF_TEXTREL 0x0004    /* Indicates there may be relocations in \
-                                non-writable segments. */
-#define DF_BIND_NOW 0x0008   /* Indicates that the dynamic linker should  \
-                                process all relocations for the object    \
-                                containing this entry before transferring \
-                                control to the program. */
-#define DF_STATIC_TLS 0x0010 /* Indicates that the shared object or     \
-                                executable contains code using a static \
-                                thread-local storage scheme. */
+#define DF_ORIGIN                                                                                                      \
+    0x0001                 /* Indicates that the object being loaded may                                               \
+                              make reference to the $ORIGIN substitution                                               \
+                              string */
+#define DF_SYMBOLIC 0x0002 /* Indicates "symbolic" linking. */
+#define DF_TEXTREL                                                                                                     \
+    0x0004 /* Indicates there may be relocations in                                                                    \
+              non-writable segments. */
+#define DF_BIND_NOW                                                                                                    \
+    0x0008 /* Indicates that the dynamic linker should                                                                 \
+              process all relocations for the object                                                                   \
+              containing this entry before transferring                                                                \
+              control to the program. */
+#define DF_STATIC_TLS                                                                                                  \
+    0x0010 /* Indicates that the shared object or                                                                      \
+              executable contains code using a static                                                                  \
+              thread-local storage scheme. */
 
 /* Values for DT_FLAGS_1 */
 #define DF_1_BIND_NOW 0x00000001 /* Same as DF_BIND_NOW */
